@@ -1,0 +1,52 @@
+*{
+  --cellDimension: min(30vw, 10rem);
+  --cellGap: min(3vw, 1rem);
+}
+
+body {
+  margin: 0;
+  background-color: honeydew;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 5rem 0;
+}
+
+.cell-container {
+  display: flex;
+  width: calc(var(--cellDimension) * 3 +
+    var(--cellGap) * 2);
+  flex-wrap: wrap;
+  gap: var(--cellGap);
+  margin: auto;
+}
+
+.cell {
+  width: var(--cellDimension);
+  height: var(--cellDimension);
+  background-color: rgb(0, 0, 0, 0.75);
+}
+
+.cell:hover {
+  background-color: black;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding: 0.5rem 0;
+  text-align: center;
+  background-color: rgb(0, 0, 0, 0.75);
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: gold;
+}
