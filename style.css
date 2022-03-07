@@ -91,4 +91,5 @@ footer a:hover {
   background-color: black;
   color: white;
   border: 0.1rem solid white;
+  cursor: pointer;
 }
