@@ -15,6 +15,7 @@ cells.forEach((cell) => {
   cell.addEventListener('click', function playCell() {
     cell.style.backgroundColor = 'black';
     activePlayer = switchPlayer(activePlayer);
+    cell.innerHTML = `${activePlayer}`;
     cell.removeEventListener('click', playCell);
   });
 });
