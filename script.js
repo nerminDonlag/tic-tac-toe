@@ -1,15 +1,5 @@
 let activePlayer = 'X';
 
-function switchPlayer(player) {
-  let currentPlayer = player;
-  if (currentPlayer == 'X') {
-    currentPlayer = 'O';
-  } else {
-    currentPlayer = 'X';
-  }
-  return currentPlayer;
-}
-
 const cells = document.querySelectorAll('.cell');
 cells.forEach((cell) => {
   cell.addEventListener('click', function playCell() {
@@ -21,6 +11,21 @@ cells.forEach((cell) => {
     cell.removeEventListener('click', playCell);
   });
 });
+
+document.querySelector('button')
+  .addEventListener('click', () => {
+    window.location.reload();
+  });
+
+function switchPlayer(player) {
+  let currentPlayer = player;
+  if (currentPlayer == 'X') {
+    currentPlayer = 'O';
+  } else {
+    currentPlayer = 'X';
+  }
+  return currentPlayer;
+}
 
 function setWinner() {
   document.querySelector('.message > p')
