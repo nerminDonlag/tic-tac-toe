@@ -1,4 +1,5 @@
 let activePlayer = 'X';
+let drawCounter = 0;
 
 const cells = document.querySelectorAll('.cell');
 cells.forEach((cell) => {
@@ -9,6 +10,8 @@ cells.forEach((cell) => {
     checkWinner();
     activePlayer = switchPlayer(activePlayer);
     cell.removeEventListener('click', playCell);
+    drawCounter++;
+    checkDraw();
   });
 });
 
@@ -16,6 +19,15 @@ document.querySelector('button')
   .addEventListener('click', () => {
     window.location.reload();
   });
+
+function checkDraw() {
+  if(drawCounter === 9) {
+    document.querySelector('.message > p')
+    .innerHTML = `Draw!`;
+  document.querySelector('.message')
+    .style.display = 'flex';
+  }
+}
 
 function switchPlayer(player) {
   let currentPlayer = player;
@@ -29,9 +41,10 @@ function switchPlayer(player) {
 
 function setWinner() {
   document.querySelector('.message > p')
-      .innerHTML = `${activePlayer} won!`;
+    .innerHTML = `${activePlayer} won!`;
   document.querySelector('.message')
-      .style.display = 'flex';
+    .style.display = 'flex';
+  drawCounter--;
 }
 
 function checkWinner() {
@@ -79,8 +92,8 @@ function checkWinner() {
         setWinner();
       }
     }
-    if(cells[4].classList.contains('x')) {
-      if(cells[2].classList.contains('x')){
+    if (cells[4].classList.contains('x')) {
+      if (cells[2].classList.contains('x')) {
         setWinner();
       }
     }
@@ -130,8 +143,8 @@ function checkWinner() {
         setWinner();
       }
     }
-    if(cells[4].classList.contains('o')) {
-      if(cells[2].classList.contains('o')){
+    if (cells[4].classList.contains('o')) {
+      if (cells[2].classList.contains('o')) {
         setWinner();
       }
     }
